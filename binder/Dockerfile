@@ -33,6 +33,12 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 #RUN echo "source activate rapids" > ~/.bashrc
 #WORKDIR /
-WORKDIR ${HOME}
+#WORKDIR ${HOME}
 
-USER ${USER}
+#USER ${USER}
+
+# Make sure the contents of our repo are in ${HOME}
+COPY . ${HOME}
+USER root
+RUN chown -R ${NB_UID} ${HOME}
+USER ${NB_USER}
