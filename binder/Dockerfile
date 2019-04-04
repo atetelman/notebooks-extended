@@ -36,7 +36,7 @@ WORKDIR ${HOME}
 COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
-
+RUN sleep 999999
 # Copy styling somewhere Jupyter will read it
 RUN mkdir -p ${HOME}/.jupyter/custom && cp ${HOME}/binder/static/* ${HOME}/.jupyter/custom/
 
