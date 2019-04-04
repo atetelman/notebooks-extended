@@ -19,12 +19,6 @@ ${NB_USER}
 WORKDIR ${HOME}
 
 
-RUN apt-get update && apt-get install --no-install-recommends -y \
-        git \
-        vim \
-        graphviz \
-        && rm -rf /var/lib/apt/lists/*
-
 #RUN source activate rapids && conda install -y -c conda-forge nodejs \
 #    && jupyter labextension install jupyterlab_vim
 
