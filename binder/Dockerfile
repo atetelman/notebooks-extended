@@ -37,8 +37,13 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 #USER ${USER}
 
+
 # Make sure the contents of our repo are in ${HOME}
 COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
+
+# Copy styling somewhere Jupyter will read it
+RUN mkdir -p ${HOME}/.jupyter/custom && cp ${HOME}/binder/static/* ${HOME}/.jupyter/custom/
+
 USER ${NB_USER}
