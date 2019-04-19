@@ -1,7 +1,4 @@
 FROM rapidsai/rapidsai:cuda10.0-devel-ubuntu18.04
-
-#USER root
-
 # create user with a home directory
 #ARG CONDA_ENV=rapids
 ARG NB_USER
@@ -19,13 +16,6 @@ ${NB_USER}
 WORKDIR ${HOME}
 
 
-RUN apt-get update && apt-get install --no-install-recommends -y \
-        git \
-        vim \
-        graphviz \
-        && rm -rf /var/lib/apt/lists/*
-
-#RUN source activate rapids && conda install -y -c conda-forge nodejs \
 #    && jupyter labextension install jupyterlab_vim
 
 #RUN conda install -y -c conda-forge nodejs \
